@@ -7,7 +7,7 @@ const PastLaunches = async () => {
 
   return (
     <>
-      <h1>List of Past Launches</h1>
+      <h1 className='text-4xl font-bold'>List of Past Launches</h1>
       {data.docs.map((item: any, key: number) => (
         <Launch
           key={key}

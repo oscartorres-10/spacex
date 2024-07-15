@@ -14,15 +14,19 @@ const Launch = ({ name, details, date_local, rocket }: Props) => {
   const relativeDate = formatRelative(isoDate, new Date())
   return (
     <>
-      <div className='grid grid-rows-2 gap-2 border-dashed border-blue-500 rounded-sm m-4 p-2 border w-full'>
-        <p className='flex gap-2 justify-between'>
-          <span className='font-bold'>{name}</span>
-          {/* <span className='text-sm'>{isoDate}</span> */}
-          <span className='text-sm'>{relativeDate}</span>
-        </p>
-        <p className=''>{details ? details : 'No description'}</p>
+      <article className='grid gap-4 rounded-sm m-4 p-2 border w-1/4 bg-white border-gray-500 font-mono'>
+        <div>
+          <p className='font-bold text-2xl'>{name} </p>
+          <p className='font-extralight'>
+            {details ? details : 'No description'}
+          </p>
+        </div>
+        <div className='flex gap-2 justify-between items-center mt-6'>
+          <p>Launch date:</p>
+          <p className='text-sm font-mono'>{relativeDate}</p>
+        </div>
         {/* <p className=''>{rocket}</p> */}
-      </div>
+      </article>
     </>
   )
 }
