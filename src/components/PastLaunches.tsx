@@ -2,6 +2,8 @@ import React from 'react'
 import Launch from './Launch'
 import { getPastLaunches } from '../queries'
 
+// TODO: continue with Story 2 - Search a Past Launch (required)
+
 const PastLaunches = async () => {
   const data = await getPastLaunches()
 
