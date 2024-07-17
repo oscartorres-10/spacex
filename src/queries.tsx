@@ -19,6 +19,16 @@ export async function getPastLaunches() {
   return res.json()
 }
 
+export async function getAllLaunches() {
+  const res = await fetch('https://api.spacexdata.com/v5/launches', {
+    method: 'GET',
+  })
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+  return res.json()
+}
+
 export async function getOneRocket(id: string) {
   const res = await fetch(`https://api.spacexdata.com/v4/rockets/:${id}`)
   if (!res.ok) {

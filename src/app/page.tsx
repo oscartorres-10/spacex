@@ -1,9 +1,10 @@
 import PastLaunches from '@/components/PastLaunches'
 import { Suspense } from 'react'
-import { getPastLaunches } from '../queries'
+import { getAllLaunches, getPastLaunches } from '../queries'
 
 export default async function Home() {
   const data = await getPastLaunches()
+  // const data = await getAllLaunches()
   return (
     <main className='flex min-h-screen flex-col items-center p-24'>
       <Suspense fallback={'Loading...'}>

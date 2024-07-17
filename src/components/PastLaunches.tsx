@@ -5,8 +5,9 @@ import { type Launch } from '@/types'
 
 const PastLaunches = (data: any) => {
   const [searchTerm, setSearchTerm] = useState('')
-  let filteredLaunches: Launch[] = data.data.docs.filter(
-    (launch: Launch) =>
+  let filteredLaunches = data.data.docs.filter(
+    // let filteredLaunches = data.data.filter(
+    (launch) =>
       launch.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       launch?.details?.toLowerCase().includes(searchTerm.toLowerCase())
   )
@@ -21,6 +22,7 @@ const PastLaunches = (data: any) => {
       />
 
       <p className='my-2'>{data.data.docs.length} total launches</p>
+      {/* <p className='my-2'>{data.data.length} total launches</p> */}
 
       {filteredLaunches.map((item: Launch, key: number) => (
         <LaunchCard
