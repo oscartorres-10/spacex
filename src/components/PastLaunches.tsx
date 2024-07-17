@@ -34,7 +34,8 @@ const PastLaunches = (data: any) => {
           name={item.name}
           details={item.details}
           date_local={new Date(item.date_local)}
-          rocket={item.rocket}></LaunchCard>
+          rocket={item.rocket}
+          links={item.links}></LaunchCard>
       ))}
     </>
   )

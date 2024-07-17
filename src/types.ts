@@ -3,4 +3,7 @@ export type Launch = {
   details: string
   date_local: Date
   rocket: string
+  links: {
+    youtube_id: string
+  }
 }
