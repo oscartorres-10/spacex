@@ -20,6 +20,8 @@ const PastLaunches = (data: any) => {
         onChange={(event) => setSearchTerm(event.target.value)}
       />
 
+      <p className='my-2'>{data.data.docs.length} total launches</p>
+
       {filteredLaunches.map((item: Launch, key: number) => (
         <LaunchCard
           key={key}
