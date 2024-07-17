@@ -1,0 +1,3 @@
+{
+  "conventionalCommits.scopes": ["header", "main-nav", "PastLaunches, LaunchCard", "PastLaunches", "vscode"]
+}
