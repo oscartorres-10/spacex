@@ -27,6 +27,10 @@ export async function getPastLaunches() {
 export async function getAllLaunches() {
   const res = await fetch('https://api.spacexdata.com/v5/launches', {
     method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    cache: 'no-store',
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
