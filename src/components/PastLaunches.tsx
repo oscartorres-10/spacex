@@ -3,9 +3,7 @@ import React, { useState } from 'react'
 import LaunchCard from './LaunchCard'
 import { type Launch } from '@/types'
 
-// TODO: implement Story 3 - Show More Launches (optional)
-// i'm not able to get the launches/query API to give me different results based on limit and sort, so I can't get the pagination. I tried removing the Next.js cache (https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#caching-data) to see if that was the issue but no success. I'm seeing in Postman that the API do work, so the issue is somewhere else.
-// will move to Story 4 to continue advancing and then come back to this
+// TODO: implement Story 3 - Show More Launches (optional, try with Pagination component https://ui.shadcn.com/docs/components/pagination
 
 const PastLaunches = (data: any) => {
   const [searchTerm, setSearchTerm] = useState('')
