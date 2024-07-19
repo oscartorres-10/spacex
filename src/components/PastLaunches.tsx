@@ -27,9 +27,7 @@ const PastLaunches = (data: any) => {
         onChange={(event) => setSearchTerm(event.target.value)}
       />
 
-      <p className='my-2 text-xs self-end'>
-        {data.data.docs.length} total launches
-      </p>
+      <p className='my-2 text-xs'>{data.data.docs.length} total launches</p>
       {/* <p className='my-2'>{data.data.length} total launches</p> */}
 
       <div className='grid gap-4 w-min'>
