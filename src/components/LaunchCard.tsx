@@ -8,35 +8,31 @@ const LaunchCard = ({ name, details, date_local, rocket, links }: Launch) => {
   const relativeDate = formatRelative(isoDate, new Date())
 
   return (
-    <>
-      <article className='grid gap-4 rounded-sm m-4 p-2 border w-1/3 border-gray-500 font-mono'>
-        <div>
-          <p className='font-bold text-2xl'>{name} </p>
-          <p className='font-extralight'>
-            {details ? details : 'No description'}
-          </p>
-        </div>
-        <div className='flex gap-2 justify-between items-center mt-6'>
-          <p>Launch date:</p>
-          <p className='text-sm font-mono'>{relativeDate}</p>
-        </div>
-        {/* <p className=''>{rocket}</p> */}
+    <article className='grid gap-4 rounded-sm m-4 p-2 border border-gray-500 font-mono'>
+      <div>
+        <p className='font-bold text-2xl'>{name} </p>
+        <p className='font-extralight'>
+          {details ? details : 'No description'}
+        </p>
+      </div>
+      <div className='flex gap-2 justify-between items-center'>
+        <p>Launch date:</p>
+        <p className='text-sm font-mono'>{relativeDate}</p>
+      </div>
+      {/* <p className=''>{rocket}</p> */}
 
-        {/* TODO: to play video on hover we need to follow YouTube Frame API reference: https://developers.google.com/youtube/iframe_api_reference#Getting_Started 
+      {/* TODO: to play video on hover we need to follow YouTube Frame API reference: https://developers.google.com/youtube/iframe_api_reference#Getting_Started 
         we should be able to call the playback controls like `player.playVideo()`
         */}
-        <iframe
-          className='justify-self-center'
-          width='460'
-          height='215'
-          src={`https://www.youtube-nocookie.com/embed/${links.youtube_id}`}
-          title='YouTube video player'
-          frameBorder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          referrerPolicy='strict-origin-when-cross-origin'
-          allowFullScreen></iframe>
-      </article>
-    </>
+      <iframe
+        className='justify-self-center mt-6 md:w-[460px] h-[258.75px]'
+        src={`https://www.youtube-nocookie.com/embed/${links.youtube_id}`}
+        title='YouTube video player'
+        frameBorder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        referrerPolicy='strict-origin-when-cross-origin'
+        allowFullScreen></iframe>
+    </article>
   )
 }
 

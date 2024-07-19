@@ -6,7 +6,7 @@ export default async function Home() {
   const data = await getPastLaunches()
   // const data = await getAllLaunches()
   return (
-    <main className='flex min-h-screen flex-col items-center p-24'>
+    <main className='flex min-h-screen flex-col items-center p-4'>
       <Suspense fallback={'Loading...'}>
         <PastLaunches data={data} />
       </Suspense>

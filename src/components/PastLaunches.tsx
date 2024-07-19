@@ -18,25 +18,31 @@ const PastLaunches = (data: any) => {
 
   return (
     <>
-      <h1 className='text-4xl font-bold my-4'>List of Past Launches</h1>
+      <h1 className='text-4xl font-bold my-4 text-center'>
+        List of Past Launches
+      </h1>
       <input
         placeholder='Search...'
-        className='flex h-10 w-1/3 rounded-md border border-input text-black px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'
+        className='flex h-10 w-4/5 sm:w-1/3 rounded-md border border-input text-black px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50'
         onChange={(event) => setSearchTerm(event.target.value)}
       />
 
-      <p className='my-2'>{data.data.docs.length} total launches</p>
+      <p className='my-2 text-xs self-end'>
+        {data.data.docs.length} total launches
+      </p>
       {/* <p className='my-2'>{data.data.length} total launches</p> */}
 
-      {filteredLaunches.map((item: Launch, key: number) => (
-        <LaunchCard
-          key={key}
-          name={item.name}
-          details={item.details}
-          date_local={new Date(item.date_local)}
-          rocket={item.rocket}
-          links={item.links}></LaunchCard>
-      ))}
+      <div className='grid gap-4 w-min'>
+        {filteredLaunches.map((item: Launch, key: number) => (
+          <LaunchCard
+            key={key}
+            name={item.name}
+            details={item.details}
+            date_local={new Date(item.date_local)}
+            rocket={item.rocket}
+            links={item.links}></LaunchCard>
+        ))}
+      </div>
     </>
   )
 }
