@@ -74,6 +74,7 @@ const PastLaunches = ({ entriesPerPage, totalLaunches, totalPages }: any) => {
               disabled={Number(page) <= 1}
               className='disabled:cursor-not-allowed disabled:opacity-75'>
               <PaginationPrevious
+                // this change in the URL params will force the server component page.tsx to re-render
                 onClick={() => {
                   router.push(`/?page=${Number(page) - 1}&per_page=${per_page}`)
                 }}
