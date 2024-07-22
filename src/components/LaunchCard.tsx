@@ -8,10 +8,10 @@ const LaunchCard = ({ name, details, date_local, rocket, links }: Launch) => {
   const relativeDate = formatRelative(isoDate, new Date())
 
   return (
-    <article className='grid gap-4 rounded-sm m-4 p-2 border border-gray-500 font-mono'>
+    <article className='grid gap-4 w-dvw rounded-sm m-4 p-2 border border-gray-500 font-mono'>
       <div>
-        <p className='font-bold text-2xl'>{name} </p>
-        <p className='font-extralight'>
+        <p className='font-bold text-2xl'>{name}</p>
+        <p className='font-extralight max-h-28 overflow-scroll'>
           {details ? details : 'No description'}
         </p>
       </div>

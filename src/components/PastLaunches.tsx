@@ -6,15 +6,12 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination'
-
-// TODO: implement Story 3 - Show More Launches (optional), try with Pagination component https://ui.shadcn.com/docs/components/pagination
-// TODO: continue with Pagination
+import Link from 'next/link'
 
 const PastLaunches = ({ entriesPerPage, totalLaunches, totalPages }: any) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -41,60 +38,73 @@ const PastLaunches = ({ entriesPerPage, totalLaunches, totalPages }: any) => {
         onChange={(event) => setSearchTerm(event.target.value)}
       />
 
-      <p className='my-2 text-xs'>{totalLaunches} total launches</p>
-      <p className='my-2 text-xs'>
-        {entriesPerPage.length} launches in this page
-      </p>
+      <div className='flex gap-2 items-center'>
+        <p className='my-2 text-xs'>{totalLaunches} total launches</p>·
+        <p className='my-2 text-xs'>
+          {entriesPerPage.length} launches in page {page}
+        </p>
+      </div>
 
-      <div className='grid gap-4 w-min'>
-        {filteredLaunches.map((item: Launch, key: number) => (
-          <LaunchCard
-            key={key}
-            name={item.name}
-            details={item.details}
-            date_local={new Date(item.date_local)}
-            rocket={item.rocket}
-            links={item.links}></LaunchCard>
-        ))}
+      <div className='flex gap-4 w-screen overflow-y-scroll'>
+        {filteredLaunches.length === 0 ? (
+          <p className='mx-auto my-28'>
+            No launches found. Select another page or{' '}
+            <Link href={`/?page=1&per_page=${per_page}`} className='underline'>
+              start from the beginning
+            </Link>
+            .
+          </p>
+        ) : (
+          filteredLaunches.map((item: Launch, key: number) => (
+            <LaunchCard
+              key={key}
+              name={item.name}
+              details={item.details}
+              date_local={new Date(item.date_local)}
+              rocket={item.rocket}
+              links={item.links}></LaunchCard>
+          ))
+        )}
       </div>
 
       <Pagination>
-        <PaginationContent>
+        <PaginationContent className='overflow-scroll'>
           <PaginationItem>
-            {/* TODO: disable previous and next buttones accordingly, shouldn't be possible to go to page -1 for example */}
-            <PaginationPrevious
-              href='#'
-              onClick={() => {
-                router.push(`/?page=${Number(page) - 1}&per_page=${per_page}`)
-              }}
-            />
+            <button
+              disabled={Number(page) <= 1}
+              className='disabled:cursor-not-allowed disabled:opacity-75'>
+              <PaginationPrevious
+                onClick={() => {
+                  router.push(`/?page=${Number(page) - 1}&per_page=${per_page}`)
+                }}
+              />
+            </button>
           </PaginationItem>
 
-          {/* TODO: chequear cual es el valor correcto para lenght para tener el numero correcto de botones mostrados */}
-          {Array.from({ length: totalPages / Number(per_page) }, (_, index) => (
-            <PaginationItem key={index}>
-              <PaginationLink
-                href='#'
-                onClick={() => {
-                  router.push(`/?page=${index}&per_page=${per_page}`)
-                }}
-                isActive={Number(page) === index}>
-                {index}
-              </PaginationLink>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <PaginationItem key={index + 1}>
+              <button>
+                <PaginationLink
+                  onClick={() => {
+                    router.push(`/?page=${index + 1}&per_page=${per_page}`)
+                  }}
+                  isActive={Number(page) === index + 1}>
+                  {index + 1}
+                </PaginationLink>
+              </button>
             </PaginationItem>
           ))}
 
           <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-
-          <PaginationItem>
-            <PaginationNext
-              href='#'
-              onClick={() => {
-                router.push(`/?page=${Number(page) + 1}&per_page=${per_page}`)
-              }}
-            />
+            <button
+              disabled={Number(page) >= totalPages}
+              className='disabled:cursor-not-allowed disabled:opacity-75'>
+              <PaginationNext
+                onClick={() => {
+                  router.push(`/?page=${Number(page) + 1}&per_page=${per_page}`)
+                }}
+              />
+            </button>
           </PaginationItem>
         </PaginationContent>
       </Pagination>

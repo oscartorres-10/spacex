@@ -17,7 +17,7 @@ export default async function Home({
 
   const entriesPerPage = data.docs.slice(start, end)
   const totalLaunches = data.totalDocs
-  const totalPages = data.totalPages
+  const totalPages = Math.ceil(data.limit / Number(per_page))
 
   return (
     <main className='flex min-h-screen flex-col items-center p-4'>
