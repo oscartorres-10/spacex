@@ -2,7 +2,7 @@ export async function getPastLaunches() {
   const body = {
     query: {},
     options: {
-      limit: 3,
+      limit: 15,
       sort: {
         date_local: 'asc',
       },
