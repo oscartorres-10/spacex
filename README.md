@@ -2,6 +2,8 @@ hi 👋🏼
 
 this is a small project from a frontend technical assessment i had in an interview a while ago, i wanted to practice and spinned up a Next.js app for it
 
+you can view it live here: <https://spacex-oscartorres.vercel.app>
+
 # i learnt about
 
 - simple data fetching from a [REST API](https://github.com/r-spacex/SpaceX-API)
