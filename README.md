@@ -9,7 +9,9 @@ this is a small project from a frontend technical assessment i had in an intervi
   - used [Next.js `useSearchParams`](https://nextjs.org/docs/app/api-reference/functions/use-search-params), a nice way to manage data as an alternative to using state on the client, one great benefit is you are able to save and share that URL
   - used [Pagination](https://ui.shadcn.com/docs/components/pagination) component from [shadcn/ui](https://ui.shadcn.com)
 
-# resources used
+# other resources used
+
+i always try to get an overview of the problem to solve first so i watched a couple of videos:
 
 - [My New Favorite Pagination Method](https://www.youtube.com/watch?v=SXmni_7B0r4)
 - [My Updated Way of Adding Pagination w/ Next.js 14, Tailwind CSS and shadcn/ui](https://www.youtube.com/watch?v=1DtJDGwdMQs)
@@ -23,13 +25,20 @@ for reference, the title of the User Stories were:
 - 3 - Show More Launches (optional)
 - 4 - Display video (optional)
 
+# improvements
+
+possible improvements could be:
+
+- adding a nice UI to select the number of results per page the user wants and the limit of launches (currently not accessible to the user at all, only done in `queries.tsx` file)
+- standarizing alignment of launch cards as it differs between launches that have no description and others that have longer descriptions, it's noticeable when you change pages
+
 <br>
 
 <details>
   <summary>other details of the project</summary>
 
   <br>
-  
+
   This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
