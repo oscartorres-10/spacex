@@ -29,7 +29,7 @@ const PastLaunches = ({ entriesPerPage, totalLaunches, totalPages }: any) => {
   return (
     <>
       <h1 className='text-4xl font-bold my-4 text-center'>
-        List of Past Launches
+        SpaceX Past Launches
       </h1>
 
       <input
