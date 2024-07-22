@@ -1,3 +1,13 @@
 {
-  "conventionalCommits.scopes": ["header", "main-nav", "PastLaunches, LaunchCard", "PastLaunches", "vscode"]
+  "conventionalCommits.scopes": [
+    "header",
+    "main-nav",
+    "PastLaunches, LaunchCard",
+    "PastLaunches",
+    "vscode",
+    "PastLaunches, queries, page",
+    "components",
+    "page, PastLaunches",
+    "page, PastLaunches, LaunchCard"
+  ]
 }
